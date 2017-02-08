@@ -1,82 +1,78 @@
 <!DOCTYPE html>
 <html>
+
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title></title>
+    <title>Config maker</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
   </head>
-  <body>
-    <h1>Hello, world!</h1>
 
-    <form>
-      <fieldset class="form-group">
-        <label for="exampleInputEmail1">Email address</label>
-        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-        <small class="text-muted">We'll never share your email with anyone else.</small>
-      </fieldset>
-      <fieldset class="form-group">
-        <label for="exampleInputPassword1">Password</label>
-        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-      </fieldset>
-      <fieldset class="form-group">
-        <label for="exampleSelect1">Example select</label>
-        <select class="form-control" id="exampleSelect1">
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5</option>
-        </select>
-      </fieldset>
-      <fieldset class="form-group">
-        <label for="exampleSelect2">Example multiple select</label>
-        <select multiple class="form-control" id="exampleSelect2">
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5</option>
-        </select>
-      </fieldset>
-      <fieldset class="form-group">
-        <label for="exampleTextarea">Example textarea</label>
-        <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
-      </fieldset>
-      <fieldset class="form-group">
-        <label for="exampleInputFile">File input</label>
-        <input type="file" class="form-control-file" id="exampleInputFile">
-        <small class="text-muted">This is some placeholder block-level help text for the above input. It's a bit lighter and easily wraps to a new line.</small>
-      </fieldset>
-      <div class="radio">
-        <label>
-          <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
-          Option one is this and that&mdash;be sure to include why it's great
-        </label>
+  <body>
+    <div class="container">
+      <div class="header clearfix">
+        <h3 class="text-muted">Config maker</h3>
       </div>
-      <div class="radio">
-        <label>
-          <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-          Option two can be something else and selecting it will deselect option one
-        </label>
+      <div class="row marketing">
+        <div class="col-lg-12">
+          <form id="magic">
+            <div class="form-group">
+              <label for="hostname">Hostname</label>
+              <input type="text" class="form-control" name="hostname" id="hostname" placeholder="Hostess with the mostess">
+            </div>
+            <div class="form-group">
+              <label for="serialnumber">Serial Number</label>
+              <input type="text" class="form-control" name="serialnumber" id="serialnumber" placeholder="Totally serial">
+            </div>
+            <div class="form-group">
+              <label for="ipaddress">IP Address</label>
+              <input type="text" class="form-control" name="ipaddress" id="ipaddress" placeholder="I pee soft">
+            </div>
+            <div class="form-group">
+              <label for="role">Role</label>
+              <select name="role" id="role" class="form-control">
+                <option value="ds">DS</option>
+                <option value="tor">TOR</option>
+                <option value="htor">HTOR</option>
+                <option value="hcore">HCORE</option>
+                <option value="svctor">SVC-TOR</option>
+                <option value="stor">S-TOR</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="site">Site</label>
+              <select name="site" id="site" class="form-control">
+                <option value="ami">AMI</option>
+                <option value="dal">DAL</option>
+                <option value="nj01">NJ01</option>
+                <option value="nyi">NYI</option>
+                <option value="sje">SJE</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="model">Model</label>
+              <select name="model" id="model" class="form-control">
+                <option value="7050">7050</option>
+                <option value="7150">7150</option>
+                <option value="7048">7048</option>
+                <option value="7500">7500</option>
+              </select>
+            </div>
+            <button type="submit" class="btn btn-default">Update Config</button>
+          </form>
+
+          <hr>
+
+          <textarea name="config" id="config" rows="8" cols="80"></textarea>
       </div>
-      <div class="radio disabled">
-        <label>
-          <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3" disabled>
-          Option three is disabled
-        </label>
-      </div>
-      <div class="checkbox">
-        <label>
-          <input type="checkbox"> Check me out
-        </label>
-      </div>
-      <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
+
+    </div> <!-- /container -->
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js" integrity="sha384-vZ2WRJMwsjRMW/8U7i6PWi6AlO1L79snBrmgiDpgIWJ82z8eA5lenwvxbMV1PAh7" crossorigin="anonymous"></script>
-  </body>
+    <script src="./index.js"></script>
+</body>
+
 </html>
