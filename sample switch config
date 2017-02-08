@@ -1,0 +1,65 @@
+event-handler configpush
+   trigger on-startup-config
+   action bash /mnt/flash/config_push.sh
+!
+transceiver qsfp default-mode 4x10G
+!
+logging buffered 1000
+!
+hostname {{hostname}}
+ip name-server vrf default {{set by site}}
+ip name-server vrf default {{set by site}}
+ip name-server vrf default {{set by site}}
+!
+ntp server {{set by site}}
+!
+!
+spanning-tree mode mstp
+no spanning-tree vlan 4094
+spanning-tree mst 0 priority 4096
+!
+aaa authentication login default group tacacs+ local
+aaa authentication enable default group tacacs+ local
+aaa authorization exec default group tacacs+ local
+aaa authorization commands all default group tacacs+ local
+aaa accounting commands all default start-stop group tacacs+
+!
+no aaa root
+!
+clock timezone America/New_York
+!
+vlan 1
+   state suspend
+!
+{{ BLOCK OF CONFIG SET BY ROLE}
+!
+interface Port-Channel1
+!
+interface Port-Channel4
+!
+interface Ethernet1
+   load-interval 30
+!
+interface Ethernet2
+   load-interval 30
+!
+interface Ethernet3
+   load-interval 30
+!
+interface Management1
+   ip address 10.0.5.19/24
+!
+ip route 0.0.0.0/0 {{set by site}}
+!
+no ip routing
+{{BLOCK OF CONFIG SET BY ROLE}}
+
+{{BLOCK OF CONFIG SET BY MODEL}}
+!
+management api http-commands
+   no protocol https
+   protocol unix-socket
+   no shutdown
+!
+!
+end
